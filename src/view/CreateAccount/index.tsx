@@ -35,17 +35,19 @@ const [country, setCountry]= useState<string>("");
         setCpfOrCnpj(metaData.cpfOrCnpj||"");
         setBirthdate(metaData.birthdate||"");
         setPhone(metaData.phone||"");
-        setRecipientName(metaData.address.recipientName||"");
-        setTypeAddress(metaData.address.typeAddress||"");
-        setCep(metaData.address.cep||"");
-        setNumberAddress(metaData.address.numberAddress||"");
-        setAddress(metaData.address.address||"");
-        setReferencePoint(metaData.address.referencePoint||"");
-        setComplement(metaData.address.complement||"");
-        setNeighborhood(metaData.address.neighborhood||"");
-        setCity(metaData.address.city||"");
-        setState(metaData.address.state||"");
-        setCountry(metaData.address.country||"");
+        if(metaData.address){
+            setRecipientName(metaData.address.recipientName||"");
+            setTypeAddress(metaData.address.typeAddress||"");
+            setCep(metaData.address.cep||"");
+            setNumberAddress(metaData.address.numberAddress||"");
+            setAddress(metaData.address.address||"");
+            setReferencePoint(metaData.address.referencePoint||"");
+            setComplement(metaData.address.complement||"");
+            setNeighborhood(metaData.address.neighborhood||"");
+            setCity(metaData.address.city||"");
+            setState(metaData.address.state||"");
+            setCountry(metaData.address.country||"");
+        }
     },[])
     //  const [user, setUser]= useState<IUser>({
     //     id: "",

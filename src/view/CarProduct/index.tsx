@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { IProductCar } from '../../interfaces/IProductCar';
-import IProduct from '../../model/IProduct';
 
 import { MainFormCarProduct , BodyCarProduct } from './style';
 
