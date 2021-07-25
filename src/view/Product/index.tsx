@@ -11,6 +11,7 @@ import api from '../../services/HttpService';
 import { ProductDescription } from './style';
 import { useHistory } from 'react-router-dom';
 import { ListRate } from '../../components/Card/style';
+import { IProductCar } from '../../interfaces/IProductCar';
 
 
 const Product: React.FC = () => {
@@ -18,9 +19,13 @@ const Product: React.FC = () => {
   const [qtdProduct, setQtdProduct]= useState<number>(1);
   const [colorProduct, setColorProduct]= useState<number>(0);
   const [lengthProduct, setLengthProduct]= useState<number>(0);
-
+  const [cep, setCep] = useState<string>('');
+  const [dateIni, setDateIni] = useState<Date>(new Date());
+  const [dateEnd, setDateEnd] = useState<Date>(new Date());
+  
   const history = useHistory();
   const  { id }:any = useParams();
+  const [car, setCar]=useState<IProductCar>();
   const [product, setProduct] = useState<IProduct>( {
     id: 0,
     name: '',
@@ -34,10 +39,75 @@ const Product: React.FC = () => {
     image: '',
   },);
 
+  const addCar=()=> {
+    setCar({
+      id:product.id,
+      name:product.name ,
+      description:product.description ,
+      price:product.price ,
+      rate:product.rate ,
+      deliveryDate:product.deliveryDate ,
+      isRebate:product.isRebate ,
+      image:product.image,
+      length: lengthProduct ,
+      color: product.color[colorProduct] ,
+      qtdProduct:qtdProduct,
+      cep: cep,
+    });
+    console.log(car)
+    saveStorage();
+  }
+
+  const saveStorage=()=>{
+    const metaData:any = JSON.parse(localStorage.getItem('ProductsCar') || '[]');
+    if(metaData.length===0){
+      console.log(metaData);
+      localStorage.setItem(`ProductsCar`, JSON.stringify([]));
+    }
+    let hasCar=false;
+    const data={
+      id:product.id,
+      name:product.name ,
+      description:product.description ,
+      price:product.price ,
+      rate:product.rate ,
+      deliveryDate:product.deliveryDate ,
+      isRebate:product.isRebate ,
+      image:product.image,
+      length: lengthProduct ,
+      color: product.color[colorProduct] ,
+      qtdProduct:qtdProduct,
+      cep: cep,
+    };
+    metaData.forEach((element:IProductCar) => {
+      if(element.id===product.id){
+        element.length=lengthProduct;
+        element.color=  product.color[colorProduct] ;
+        element.qtdProduct= qtdProduct;
+        element.cep=  cep;
+        hasCar=true;
+      }
+    });
+    if(!hasCar) { metaData.push(data); }
+    localStorage.setItem(`ProductsCar`, JSON.stringify(metaData));
+    // const storage= JSON.stringify(data);
+    // localStorage.setItem(`@ProductCar-${product.id}`, storage);
+
+  }
+
   useEffect(() => {
     api.get(`products/${id}`)
     .then((response:any) => {
       setProduct(response.data);
+      setDateIni(new Date(
+        new Date().getFullYear(),
+        new Date().getMonth(),
+        new Date().getDate()+product.deliveryDate));
+      setDateEnd(new Date(
+        new Date().getFullYear(),
+        new Date().getMonth(),
+        new Date().getDate()+product.deliveryDate+10));
+
     })
     .catch((error:any) => {
       history.push('/')
@@ -110,11 +180,26 @@ const Product: React.FC = () => {
 
               </div>
             </div>
-            <div className="cep-product">
-              
+            <div className="content">
+              <label className="title">
+                  Digite seu cep:
+              </label>
+              <input type="text" className="cep-input" placeholder="cep" value={cep} 
+                onChange={e => setCep(e.target.value)}/>
+                
+                  <div className="cep-product">
+                    <p>receba entre </p>
+                    <h4>{((dateIni.getDate() )) + "/" + ((dateIni.getMonth() + 1)) + "/" + dateIni.getFullYear()}
+                      <span> a </span>
+                    {((dateEnd.getDate() )) + "/" + ((dateEnd.getMonth() + 1)) + "/" + dateEnd.getFullYear()}
+                     </h4>
+                  </div>
+                 
             </div>
-            <button onClick={(e:any)=>{e.preventDefault()}} className="add-product-car"> ADICIONAR AO CARRINHO</button>
-            <button onClick={(e:any)=>{e.preventDefault()}} className="buy-product"> COMPRAR</button>
+            <button onClick={(e:any)=>{e.preventDefault(); addCar();}} 
+              className="add-product-car"> ADICIONAR AO CARRINHO</button>
+            <button onClick={(e:any)=>{e.preventDefault(); history.push(`/create-account`);}} 
+              className="buy-product"> COMPRAR</button>
 
       </div>
     </ProductDescription>

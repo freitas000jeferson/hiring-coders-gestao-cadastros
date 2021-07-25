@@ -114,6 +114,28 @@ margin: auto;
     padding: 5px;
 }
 
+.add-product-car, .buy-product{
+    padding:5px 10px;
+    font-size: 15px;
+    border: 2px solid #00E068;
+    font-weight: 600;
+}
+.add-product-car{
+    color: #00E068;
+    background-color: #fff;
+    transition: 0.25s;
+}
+.buy-product{
+    color: #fff;
+    background-color: #00E068;
+}
+
+.add-product-car:hover,
+.add-product-car:focus {
+  box-shadow: inset 0 -3.25em 0 #00E068;
+  color: #fff;
+}
+
 @media only screen and (max-width: 625px) {
     .card-part01{
         img{

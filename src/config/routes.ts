@@ -1,6 +1,7 @@
 import IRoute from "../interfaces/IRoute"
 import HomePage from '../view/Home';
 import ProductPage from '../view/Product'
+import CreateAccountPage from '../view/CreateAccount';
 const routes: IRoute[] = [
     {
         path: '/',
@@ -14,6 +15,12 @@ const routes: IRoute[] = [
         component: ProductPage,
         exact: false
     },
+    {
+        path: '/create-account',
+        name: 'Create Account',
+        component: CreateAccountPage,
+        exact: false,
+    }
 ]
 
 export default routes;

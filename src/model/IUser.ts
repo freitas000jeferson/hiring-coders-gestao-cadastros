@@ -8,5 +8,5 @@ export default interface IUser{
     cpfOrCnpj:string;
     birthdate:string;
     phone:string;
-    addres: IAddress;
+    address: IAddress;
 }
