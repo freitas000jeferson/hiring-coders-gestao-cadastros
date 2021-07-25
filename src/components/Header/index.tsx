@@ -9,14 +9,14 @@ const Header: React.FC = () => {
     <img src={logo} alt="logo" className="App-logo" width="230px" />
     <SearchHeaderApp>
         <input type="text"/>
-        <button onClick={(e)=>{e.preventDefault()}}><i className="fa fa-search"></i></button>
+        <button onClick={(e:any)=>{e.preventDefault()}}><i className="fa fa-search"></i></button>
     </SearchHeaderApp>
     <div className="spacer"></div>
-    <button onClick={(e)=>{e.preventDefault()}} className="btn-car">
+    <button onClick={(e:any)=>{e.preventDefault()}} className="btn-car">
         <i className="fa fa-shopping-cart"></i>
         <span>carrinho</span>
     </button>
-    <button  onClick={(e)=>{e.preventDefault()}} className="btn-sing-up">Criar Conta</button>
+    <button  onClick={(e:any)=>{e.preventDefault()}} className="btn-sing-up">Criar Conta</button>
     <i className="material-icons">&#xe5d2;</i>
   </HeaderApp>;
 }

@@ -27,7 +27,8 @@ const Card = (props:IProduct) => {
 
 
     return <CardContainer key={data.id}
-        onClick={(e)=>{
+        onClick={(e:any)=>{
+            e.preventDefault();
             history.push(`/product/${data.id}`);
         }
         }>

@@ -76,7 +76,7 @@ const Product: React.FC = () => {
               </label>
               <div className="color-product">
                 {product.color.map((item, index)=>
-                  <div onClick={(e) =>{e.preventDefault(); setColorProduct(index) }} className={`item-color ${item} ${colorProduct===index?'item-color-selected':''}`}>
+                  <div onClick={(e:any) =>{e.preventDefault(); setColorProduct(index) }} className={`item-color ${item} ${colorProduct===index?'item-color-selected':''}`}>
                     
                   </div>
                 )}
@@ -88,7 +88,7 @@ const Product: React.FC = () => {
               </label>
               <div className="length-product">
               {product.length.map((item, index)=>
-                  <div onClick={(e) =>{e.preventDefault(); setLengthProduct(index) }} className={`item-length  ${lengthProduct===index?'item-length-selected':''}`}>
+                  <div onClick={(e:any) =>{e.preventDefault(); setLengthProduct(index) }} className={`item-length  ${lengthProduct===index?'item-length-selected':''}`}>
                     {item}
                   </div>
                 )}
@@ -100,11 +100,11 @@ const Product: React.FC = () => {
               </label>
               <div className="qtd-product">
                 <button className="btn-update-qtd" 
-                  onClick={(e) =>{e.preventDefault();  if(qtdProduct>0)setQtdProduct(qtdProduct-1) }}
+                  onClick={(e:any) =>{e.preventDefault();  if(qtdProduct>0)setQtdProduct(qtdProduct-1) }}
                 > - </button>
                 <h3>{qtdProduct}</h3>
                 <button className="btn-update-qtd"
-                  onClick={(e) =>{e.preventDefault(); setQtdProduct(qtdProduct+1) }}
+                  onClick={(e:any) =>{e.preventDefault(); setQtdProduct(qtdProduct+1) }}
                 > + </button>
 
               </div>
@@ -112,8 +112,8 @@ const Product: React.FC = () => {
             <div className="cep-product">
               
             </div>
-            <button onClick={(e)=>{e.preventDefault()}} className="add-product-car"> ADICIONAR AO CARRINHO</button>
-            <button onClick={(e)=>{e.preventDefault()}} className="buy-product"> COMPRAR</button>
+            <button onClick={(e:any)=>{e.preventDefault()}} className="add-product-car"> ADICIONAR AO CARRINHO</button>
+            <button onClick={(e:any)=>{e.preventDefault()}} className="buy-product"> COMPRAR</button>
 
       </div>
     </ProductDescription>
