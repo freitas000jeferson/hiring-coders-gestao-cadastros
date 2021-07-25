@@ -81,7 +81,7 @@ const Product: React.FC = () => {
     };
     metaData.forEach((element:IProductCar) => {
       if(element.id===product.id){
-        element.length=lengthProduct;
+        element.length=product.length[lengthProduct];
         element.color=  product.color[colorProduct] ;
         element.qtdProduct= qtdProduct;
         element.cep=  cep;
