@@ -1,6 +1,8 @@
 ## Gerenciador de compras em React js
 Uma aplicativo simulando um e-commerce
 
+Link do front: https://front-hiring-coders-products.herokuapp.com/
+
 ### Funcionalidades
 - cadastro de usuário
 - edição de usuário
@@ -16,6 +18,7 @@ Os dados da conta do usuário e do carrinho de compras, estão sendo salvos no l
 
 ### Requisição a uma Rest API
 Para a aplicação, decidi criar um servidor em node, só para trazer a lista de produtos do aplicativo.
+
 Link da api backend: https://backend-example-hiring-coders.herokuapp.com/api/v1/products
 
 ##### endpoints
