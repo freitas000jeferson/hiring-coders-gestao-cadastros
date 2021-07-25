@@ -74,14 +74,14 @@ const Product: React.FC = () => {
       deliveryDate:product.deliveryDate ,
       isRebate:product.isRebate ,
       image:product.image,
-      length: lengthProduct ,
+      length: product.length[lengthProduct] ,
       color: product.color[colorProduct] ,
       qtdProduct:qtdProduct,
       cep: cep,
     };
     metaData.forEach((element:IProductCar) => {
       if(element.id===product.id){
-        element.length=product.length[lengthProduct];
+        element.length= product.length[lengthProduct];
         element.color=  product.color[colorProduct] ;
         element.qtdProduct= qtdProduct;
         element.cep=  cep;
@@ -198,7 +198,7 @@ const Product: React.FC = () => {
             </div>
             <button onClick={(e:any)=>{e.preventDefault(); addCar();}} 
               className="add-product-car"> ADICIONAR AO CARRINHO</button>
-            <button onClick={(e:any)=>{e.preventDefault(); history.push(`/create-account`);}} 
+            <button onClick={(e:any)=>{e.preventDefault(); addCar(); history.push(`/create-account`);}} 
               className="buy-product"> COMPRAR</button>
 
       </div>

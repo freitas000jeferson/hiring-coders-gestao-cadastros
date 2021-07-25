@@ -3,10 +3,13 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import IAddress from '../../model/IAddress';
 import IUser from '../../model/IUser';
+import { useHistory } from 'react-router-dom';
 
 import { CreatePage,AccountForm, MainForm} from './style';
 
 const CreateAccount: React.FC = () => {
+  const history = useHistory();
+
 const [email, setEmail]= useState<string>("");
 const [password, setPassword]= useState<string>("");
 const [fullName, setFullName]= useState<string>("");
@@ -100,8 +103,13 @@ const [country, setCountry]= useState<string>("");
     <MainForm>
         <CreatePage>
             <div className="container-save">
-                <button onClick={(e:any)=>{e.preventDefault(); saveStorage();}} 
-                className="save-user"> SALVAR</button>
+                <button onClick={(e:any)=>{
+                    e.preventDefault(); 
+                    saveStorage();
+                    history.push('/my-car');
+                }} className="save-user"> 
+                    SALVAR
+                </button>
             </div>
         </CreatePage>
         <CreatePage>
