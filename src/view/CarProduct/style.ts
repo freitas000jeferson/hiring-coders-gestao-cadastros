@@ -44,6 +44,19 @@ export const MainFormCarProduct:any=styled.div`
             box-shadow: inset 0 -3.25em 0 #fff;
             color: #00E068;
         }
+        .btn-delete{
+            border: 2px solid #FF0059;
+            color: #fff;
+            background-color: #FF0059;
+            padding: 2px 25px;
+            border-radius: 4px;
+            transition: 600ms;
+        }
+        .btn-delete:hover,
+        .btn-delete:focus {
+            box-shadow: inset 0 -3.25em 0 #fff;
+            color: #FF0059;
+        }
     }
     @media only screen and (max-width: 625px) {
         padding:0 40px;

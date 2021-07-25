@@ -8,10 +8,20 @@ import { MainFormCarProduct , BodyCarProduct } from './style';
 const CarProduct: React.FC = () => {
     const [product, setProduct] = useState<IProductCar[]>([]);
     useEffect(() => {
+        init();
+        // console.log(metaData);
+    },[])
+    const init=()=>{
         const metaData:IProductCar[] = JSON.parse(localStorage.getItem('ProductsCar') || '[]');
         setProduct(metaData);
-        console.log(metaData);
-    },[])
+    }
+
+    const removeCar =(index:number)=>{
+        let data: IProductCar[]= product;
+        data.splice(index, 1);
+        localStorage.setItem(`ProductsCar`, JSON.stringify(data));
+        init();
+    };
 
   return <div>
     <Header/>
@@ -53,6 +63,8 @@ const CarProduct: React.FC = () => {
                             <span>R$ {p.price.toFixed(2)}</span>
                             <h3>Total:</h3>
                             <span>R$ {(p.price*p.qtdProduct).toFixed(2)}</span>
+                            <button onClick={(e:any)=>{ removeCar(index);}} 
+                                className="btn-delete"> REMOVER</button>
                         </div>    
                     </div>
                 )}
