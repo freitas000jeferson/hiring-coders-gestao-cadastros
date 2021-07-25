@@ -11,12 +11,12 @@ const HeaderOffers: React.FC = () => {
 
   useEffect(() => {
     api.get('products/offers')
-      .then((response) => {
+      .then((response:any) => {
         setProducts(response.data);
         
         console.table(products);
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log("Caiu aqui")
       })
   },[]);
@@ -27,8 +27,8 @@ const HeaderOffers: React.FC = () => {
     <section className="list-products-offers">
       {
         products.length>0?
-        products.map((p) => 
-          <Card key={p.id.toString()} {...p}/>
+        products.map((p, index) => 
+          <Card key={index} {...p}/>
         ):''
       }
     </section>

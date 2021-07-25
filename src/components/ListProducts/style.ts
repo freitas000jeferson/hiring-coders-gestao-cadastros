@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+
 export const MainContainer:any=styled.div`
     padding: 0px 120px;
     display: flex;

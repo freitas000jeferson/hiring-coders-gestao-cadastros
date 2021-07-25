@@ -35,11 +35,11 @@ const Product: React.FC = () => {
     },);
     useEffect(() => {
     api.get(`products/${id}`)
-    .then((response) => {
+    .then((response:any) => {
       setProduct(response.data);
       // console.log(response.data);
     })
-    .catch((error) => {
+    .catch((error:any) => {
       history.push('/')
     })
       

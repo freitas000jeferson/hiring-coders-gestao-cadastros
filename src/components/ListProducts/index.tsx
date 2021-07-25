@@ -10,11 +10,11 @@ const ListProducts: React.FC = () => {
 
   useEffect(() => {
     api.get('products/')
-      .then((response) => {
+      .then((response:any) => {
         setProducts(response.data);
         // console.table(products);
       })
-      .catch((error) => {})
+      .catch((error:any) => {})
   },[]);
 
   return <MainContainer>
@@ -24,8 +24,8 @@ const ListProducts: React.FC = () => {
       <div className="list-products">
         {
           products.length>0?
-          products.map((p) => 
-            <Card key={p.id.toString()} {...p}/>
+          products.map((p, index) => 
+            <Card key={index} {...p}/>
           ):''
         }
       </div>
