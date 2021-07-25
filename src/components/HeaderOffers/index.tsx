@@ -13,23 +13,22 @@ const HeaderOffers: React.FC = () => {
     api.get('products/offers')
       .then((response:any) => {
         setProducts(response.data);
-        
-        console.table(products);
+        // console.table(products);
       })
       .catch((error:any) => {
         console.log("Caiu aqui")
       })
   },[]);
+  
   return <><SliderOffersApp>
     <header>
       Aproveite as nossas melhores ofertas!!!
     </header>
     <section className="list-products-offers">
       {
-        products.length>0?
         products.map((p, index) => 
           <Card key={index} {...p}/>
-        ):''
+        )
       }
     </section>
     </SliderOffersApp>

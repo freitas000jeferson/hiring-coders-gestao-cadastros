@@ -19,31 +19,32 @@ const Product: React.FC = () => {
   const [colorProduct, setColorProduct]= useState<number>(0);
   const [lengthProduct, setLengthProduct]= useState<number>(0);
 
-    const history = useHistory();
-    const  { id }:any = useParams();
-    const [product, setProduct] = useState<IProduct>( {
-      id: 0,
-      name: '',
-      description:"",
-      price: 200.0,
-      length: [],
-      color: [],
-      rate: 0,
-      deliveryDate: 0,
-      isRebate: true,
-      image: '',
-    },);
-    useEffect(() => {
+  const history = useHistory();
+  const  { id }:any = useParams();
+  const [product, setProduct] = useState<IProduct>( {
+    id: 0,
+    name: '',
+    description:"",
+    price: 200.0,
+    length: [],
+    color: [],
+    rate: 0,
+    deliveryDate: 0,
+    isRebate: true,
+    image: '',
+  },);
+
+  useEffect(() => {
     api.get(`products/${id}`)
     .then((response:any) => {
       setProduct(response.data);
-      // console.log(response.data);
     })
     .catch((error:any) => {
       history.push('/')
     })
-      
-    },[id])
+    
+  },)
+  
   return <div>
     <Header/>
     <section className="container">
