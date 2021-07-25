@@ -7,6 +7,9 @@ import { MainFormCarProduct , BodyCarProduct } from './style';
 
 const CarProduct: React.FC = () => {
     const [product, setProduct] = useState<IProductCar[]>([]);
+    const [totalPrice, setTotaPrice] = useState<number>(0);
+    const [dateIni,] = useState<Date>(new Date());
+
     useEffect(() => {
         init();
         // console.log(metaData);
@@ -14,6 +17,13 @@ const CarProduct: React.FC = () => {
     const init=()=>{
         const metaData:IProductCar[] = JSON.parse(localStorage.getItem('ProductsCar') || '[]');
         setProduct(metaData);
+
+        let sum:number = 0;
+        metaData.forEach((p)=>{
+            sum=(sum) + (p.price*p.qtdProduct);
+            console.log(sum);
+        });
+        setTotaPrice(sum);
     }
 
     const removeCar =(index:number)=>{
@@ -31,11 +41,13 @@ const CarProduct: React.FC = () => {
             <header>
                 <div className="date">
                     <p>Data do pedido:</p>
-                    <h2>25/02/2021</h2>
+                    <h2>
+                        {dateIni.getDate()  + "/" + (dateIni.getMonth() + 1) + "/" + dateIni.getFullYear()}
+                    </h2>
                 </div>
                 <div className="price">
                     <p>Total:</p>
-                    <h2>R$ 200,00</h2>
+                    <h2>R$ {totalPrice.toFixed(2)}</h2>
                 </div>
                 <div className="purchase">
                     <button onClick={(e:any)=>{e.preventDefault();}} 
