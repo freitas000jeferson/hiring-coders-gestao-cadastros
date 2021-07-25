@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const MainContainer=styled.div`
+export const MainContainer:any=styled.div`
     padding: 0px 120px;
     display: flex;
     flex-direction: column;

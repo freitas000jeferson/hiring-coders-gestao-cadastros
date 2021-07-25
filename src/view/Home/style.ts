@@ -1,4 +1,4 @@
 import styled from 'styled-components'
-export const Container= styled.div`
+export const Container:any= styled.div`
     font-size:15,
 `

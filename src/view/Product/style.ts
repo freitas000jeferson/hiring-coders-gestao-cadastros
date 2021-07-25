@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductDescription = styled.section`
+export const ProductDescription:any = styled.section`
 display: flex;
 flex-direction:row;
 justify-content:center;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const SliderOffersApp= styled.div`
+export const SliderOffersApp:any= styled.div`
     margin-top:10px;
     min-height: 550px;
     padding: 20px 0;

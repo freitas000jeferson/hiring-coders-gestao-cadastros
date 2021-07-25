@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HeaderApp= styled.header`
+export const HeaderApp:any= styled.header`
     background-color: #475D6D;
     display: flex;
     flex-direction:row;
@@ -91,7 +91,7 @@ export const HeaderApp= styled.header`
     
 `
 
-export const SearchHeaderApp= styled.div`
+export const SearchHeaderApp:any= styled.div`
     background-color: #475D6D;
     display: flex;
     flex-direction:row;

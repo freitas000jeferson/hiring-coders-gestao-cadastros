@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CardContainer= styled.div`
+export const CardContainer:any= styled.div`
     width: 300px;
     max-height: 425px;
     margin:0;
@@ -12,7 +12,7 @@ export const CardContainer= styled.div`
     justify-content:flex-start;
     align-items:stretch;
 `
-export const Infos= styled.div`
+export const Infos:any= styled.div`
     /* min-height: 200px; */
     display: flex;
     flex-direction: column !important;
@@ -39,7 +39,7 @@ export const Infos= styled.div`
     }
     
 `
-export const ListRate=styled.div`
+export const ListRate:any=styled.div`
     padding: 10px 0;
     display: flex;
     flex-direction: row;
@@ -55,7 +55,7 @@ export const ListRate=styled.div`
     }
 `
 
-export const InfoRabate= styled.div`
+export const InfoRabate:any= styled.div`
     padding: 8px;
     display: flex;
     flex-direction: row;

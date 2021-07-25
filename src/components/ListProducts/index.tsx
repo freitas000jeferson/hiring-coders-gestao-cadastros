@@ -25,7 +25,7 @@ const ListProducts: React.FC = () => {
         {
           products.length>0?
           products.map((p) => 
-            <Card key={p.id} {...p}/>
+            <Card key={p.id.toString()} {...p}/>
           ):''
         }
       </div>

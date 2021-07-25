@@ -26,7 +26,7 @@ const Card = (props:IProduct) => {
 
 
 
-    return <CardContainer key={data.id}
+    return <CardContainer key={data.id.toString()}
         onClick={(e:any)=>{
             e.preventDefault();
             history.push(`/product/${data.id}`);

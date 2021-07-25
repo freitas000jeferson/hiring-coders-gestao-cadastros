@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const MainFooter=styled.footer`
+export const MainFooter:any=styled.footer`
     padding: 20px 120px;
     display: flex;
     flex-direction: column;
